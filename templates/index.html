@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Dema - Resume</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            overflow-x: hidden;
+        }
+
+        .page-wrapper {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .page-wrapper.slide-left {
+            transform: translateX(-100%);
+        }
+
+        .page-wrapper.slide-in-from-left {
+            animation: slideInFromLeft 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        @keyframes slideInFromLeft {
+            from {
+                transform: translateX(-100%);
+            }
+            to {
+                transform: translateX(0);
+            }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .name {
+            font-size: 3.5em;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: nowrap;
+            width: 100%;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 1em;
+            transition: transform 0.3s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            opacity: 0.8;
+        }
+
+        .main-content {
+            padding: 50px;
+        }
+
+        .section {
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2.2em;
+            color: #667eea;
+            margin-bottom: 30px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
+        }
+
+        .education-item, .experience-item, .project-item {
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 0 10px 10px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .education-item:hover, .experience-item:hover, .project-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-size: 1.4em;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .item-date {
+            color: #667eea;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .item-subtitle {
+            color: #666;
+            font-style: italic;
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .skills-tag {
+            background: #e8ecff;
+            color: #667eea;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            font-weight: 500;
+        }
+
+        .achievements {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        .achievements li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.7;
+        }
+
+        .achievements li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .technical-skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .skill-category {
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #e8ecff;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.1);
+        }
+
+        .skill-title {
+            font-weight: 600;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+
+        .skill-list {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+
+        .pdf-download {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 12px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 10;
+        }
+
+        .pdf-download:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 40px 20px 30px;
+            }
+
+            .name {
+                font-size: 2.5em;
+            }
+
+            .contact-info {
+                gap: 15px;
+                overflow-x: auto;
+                justify-content: center;
+                padding: 0 20px;
+                scrollbar-width: none;
+                -ms-overflow-style: none;
+            }
+
+            .contact-info::-webkit-scrollbar {
+                display: none;
+            }
+
+            .contact-item {
+                font-size: 1em;
+            }
+
+            .pdf-download {
+                position: fixed;
+                top: 10px;
+                right: 10px;
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+
+            .main-content {
+                padding: 30px 25px;
+            }
+
+            .item-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .technical-skills {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .container {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .header {
+                background: #667eea !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper" id="page-wrapper">
+        <div class="container">
+        <header class="header">
+            <div style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+                <div style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; margin-bottom: 10px;">
+                    <i class="fas fa-users"></i> Visits: <span id="visit-count">Loading...</span>
+                </div>
+                <button onclick="viewStats()" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">
+                    <i class="fas fa-chart-line"></i> View Stats
+                </button>
+            </div>
+            <a href="#" class="pdf-download" onclick="downloadPDF()">
+                <i class="fas fa-download"></i>
+                Download PDF
+            </a>
+            <div class="header-content">
+                <h1 class="name">DANIEL DEMA</h1>
+                <script>
+                    fetch('/store_ip', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        }
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log('Visit logged:', data);
+                        return fetch('/visit');
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('visit-count').textContent = data.visits;
+                    })
+                    .catch(error => {
+                        console.error('Error with visit tracking:', error);
+                        document.getElementById('visit-count').textContent = 'Error loading count';
+                    });
+                </script>
+
+
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>416-554-8453</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:danieldema42@gmail.com">danieldema42@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <a href="https://www.linkedin.com/in/danieldema/">linkedin.com/in/danieldema</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <a href="https://github.com/danieldema">github.com/danieldema</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="section">
+                <h2 class="section-title">Education</h2>
+                
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">York University</div>
+                            <div class="item-subtitle">Master of Arts in Data Science</div>
+                        </div>
+                        <div class="item-date">Sep. 2024 – Dec. 2026 (Expected)</div>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">University of Toronto</div>
+                            <div class="item-subtitle">Honours Bachelor of Science in Mathematics</div>
+                        </div>
+                        <div class="item-date">Sep. 2019 – Apr. 2024</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Experience</h2>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Freelance Data Engineer</div>
+                            <div class="item-subtitle">
+                                Superior Audio | 
+                                <span class="skills-tag">SQL</span>
+                                <span class="skills-tag">PostgreSQL</span>
+                                <span class="skills-tag">Supabase</span>
+                                <span class="skills-tag">Retool</span>
+                                <span class="skills-tag">Python</span>
+                                <span class="skills-tag">pandas</span>
+                            </div>
+                        </div>
+                        <div class="item-date">May 2025 – Present</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Replaced fragmented Google Sheets with a centralized <span class="highlight">PostgreSQL</span> database via <span class="highlight">Supabase</span>, saving the business owner <span class="highlight">10+ hours/week</span> on manual data entry and reducing data entry errors by <span class="highlight">37%</span></li>
+                        <li>Developed and deployed a custom <span class="highlight">CRUD</span> web and mobile app in <span class="highlight">Retool</span> using optimized <span class="highlight">SQL</span> queries, enabling staff to input sales, update inventory, and upload product images daily</li>
+                        <li>Built an interactive dashboard with <span class="highlight">15+ real-time data views</span>, including sales trends, stock alerts, and top-selling products, driving data-informed decisions and contributing to a <span class="highlight">47% profit growth</span> in Q2 2025 vs. Q1 2025</li>
+                    </ul>
+                </div>
+
+                <div class="experience-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Teaching Assistant</div>
+                            <div class="item-subtitle">University of Toronto & York University</div>
+                        </div>
+                        <div class="item-date">Sep. 2021 – Present</div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Taught <span class="highlight">13+ distinct mathematics courses</span>, including Real Analysis, Calculus I & II, Linear Algebra I & II</li>
+                        <li>Led weekly tutorials of <span class="highlight">40+ students</span> and supported lecture sections with <span class="highlight">100+ students</span>; graded coursework for <span class="highlight">4500+ students</span> across 12+ semesters at two universities</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Projects</h2>
+
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Pediatric Appendicitis Prediction System</div>
+                            <div class="item-subtitle">
+                                <span class="skills-tag">Python</span>
+                                <span class="skills-tag">scikit-learn</span>
+                                <span class="skills-tag">pandas</span>
+                                <span class="skills-tag">Flask</span>
+                                <span class="skills-tag">HTML/CSS</span>
+                                <span class="skills-tag">Docker</span>
+                                <span class="skills-tag">Microsoft Azure</span>
+                                <span class="skills-tag">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Developed and optimized a Random Forest model using <span class="highlight">scikit-learn</span>, applying cross-validation to achieve <span class="highlight">97% accuracy</span> with a low <span class="highlight">3% false negative rate</span> for appendicitis diagnosis based on symptoms and clinical signs</li>
+                        <li>Built an interactive <span class="highlight">HTML/CSS</span> front end for symptom input, linked to a <span class="highlight">Flask</span> backend for real-time predictions; containerized the app with <span class="highlight">Docker</span> and deployed it on <span class="highlight">Microsoft Azure</span></li>
+                    </ul>
+                </div>
+
+                <div class="project-item">
+                    <div class="item-header">
+                        <div>
+                            <div class="item-title">Alzheimer's Cognitive Trajectory Modeling</div>
+                            <div class="item-subtitle">
+                                <span class="skills-tag">R</span>
+                                <span class="skills-tag">RStudio</span>
+                                <span class="skills-tag">Git</span>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="achievements">
+                        <li>Modeled cognitive decline trajectories from <span class="highlight">350+ longitudinal observations</span> using mixed-effects spline models in R; improved model fit (conditional <span class="highlight">R² from 0.73 to 0.82</span>)</li>
+                        <li>Found that socioeconomic status boosts baseline cognition but is linked to faster decline over time through significant interactions with age and brain volume (<span class="highlight">p-values < 0.002</span>)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="technical-skills">
+                    <div class="skill-category">
+                        <div class="skill-title">Languages</div>
+                        <div class="skill-list">Python, SQL, R, HTML/CSS</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Libraries & Frameworks</div>
+                        <div class="skill-list">scikit-learn, pandas, NumPy, Matplotlib, Flask, XGBoost</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Tools & Platforms</div>
+                        <div class="skill-list">Git, Docker, Jupyter Notebook, VS Code, RStudio, Microsoft Excel, LaTeX</div>
+                    </div>
+                    <div class="skill-category">
+                        <div class="skill-title">Databases & Cloud</div>
+                        <div class="skill-list">PostgreSQL, Supabase, Microsoft Azure, Retool</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        </div>
+    </div>
+
+    <script>
+        function downloadPDF() {
+            const pdfUrl = '/static/Daniel_Dema_Resume.pdf';
+            const link = document.createElement('a');
+            link.href = pdfUrl;
+            link.download = 'Daniel_Dema_Resume.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function viewStats() {
+            const pageWrapper = document.getElementById('page-wrapper');
+            pageWrapper.classList.add('slide-left');
+            
+            setTimeout(() => {
+                window.location.href = '/stats';
+            }, 500);
+        }
+
+        // Check if we're returning from stats page and animate accordingly
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('from') === 'stats') {
+                const pageWrapper = document.getElementById('page-wrapper');
+                pageWrapper.classList.add('slide-in-from-left');
+            }
+        });
+    </script>
+</body>
+</html>

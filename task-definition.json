@@ -1,0 +1,57 @@
+{
+  "family": "resume-task-def",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::634250760874:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::634250760874:role/ecsTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "resume-app",
+      "image": "634250760874.dkr.ecr.us-east-2.amazonaws.com/resume-app:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "PORT",
+          "value": "5000"
+        }
+      ],
+      "secrets": [
+        {
+          "name": "RDS_HOST",
+          "valueFrom": "arn:aws:ssm:us-east-2:634250760874:parameter/resume-app/rds-host"
+        },
+        {
+          "name": "RDS_USER",
+          "valueFrom": "arn:aws:ssm:us-east-2:634250760874:parameter/resume-app/rds-user"
+        },
+        {
+          "name": "RDS_PASSWORD",
+          "valueFrom": "arn:aws:ssm:us-east-2:634250760874:parameter/resume-app/rds-password"
+        },
+        {
+          "name": "DB_NAME",
+          "valueFrom": "arn:aws:ssm:us-east-2:634250760874:parameter/resume-app/db-name"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-create-group": "true",
+          "awslogs-group": "/ecs/resume-app",
+          "awslogs-region": "us-east-2",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}
