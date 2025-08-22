@@ -43,7 +43,7 @@
         }
 
         .container {
-            max-width: 850px;
+            max-width: 1100px;
             margin: 0 auto;
             background: white;
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
@@ -133,7 +133,17 @@
             border-bottom: 2px solid #eee;
         }
 
-        .education-item, .experience-item, .project-item {
+        .education-item {
+            background: white;
+            border-left: 3px solid #ddd;
+            padding: 10px 15px;
+            margin-bottom: 10px;
+            border-radius: 0 4px 4px 0;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .experience-item, .project-item {
             background: white;
             border-left: 3px solid #ddd;
             padding: 15px;
@@ -290,6 +300,10 @@
             display: inline-block;
         }
 
+        .stats-button-container {
+            margin-top: 4px;
+        }
+
         .stats-button {
             background: #f6f8fa;
             border: 1px solid #e1e4e8;
@@ -302,6 +316,7 @@
             display: inline-flex;
             align-items: center;
             gap: 6px;
+            width: 100%;
         }
 
         .stats-button:hover {
@@ -399,9 +414,11 @@
                 <div class="stats-badge">
                     <i class="fas fa-users"></i> Visits: <span id="visit-count">Loading...</span>
                 </div>
-                <button onclick="viewStats()" class="stats-button">
-                    <i class="fas fa-chart-line"></i> View Stats
-                </button>
+                <div class="stats-button-container">
+                    <button onclick="viewStats()" class="stats-button">
+                        <i class="fas fa-chart-line"></i> View Stats
+                    </button>
+                </div>
             </div>
             <a href="#" class="pdf-download" onclick="downloadPDF()">
                 <i class="fas fa-download"></i>
