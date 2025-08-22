@@ -13,12 +13,13 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             color: #333;
-            background: #fafafa;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             min-height: 100vh;
-            padding: 15px;
+            padding: 20px;
+            overflow-x: hidden;
         }
 
         .page-wrapper {
@@ -43,23 +44,33 @@
         }
 
         .container {
-            max-width: 850px;
+            max-width: 900px;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-radius: 8px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+            border-radius: 20px;
             overflow: hidden;
             position: relative;
-            border: 1px solid #e5e5e5;
         }
 
         .header {
-            background: white;
-            color: #333;
-            padding: 40px 30px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px 40px;
             text-align: center;
             position: relative;
-            border-bottom: 1px solid #eee;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/><circle cx="50" cy="10" r="0.5" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
         }
 
         .header-content {
@@ -68,18 +79,18 @@
         }
 
         .name {
-            font-size: 2.4em;
-            font-weight: 400;
-            margin-bottom: 8px;
-            letter-spacing: -1px;
-            color: #222;
+            font-size: 3.5em;
+            font-weight: 300;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
         }
 
         .contact-info {
             display: flex;
             justify-content: center;
-            gap: 25px;
-            margin-top: 15px;
+            gap: 30px;
+            margin-top: 20px;
             flex-wrap: nowrap;
             width: 100%;
         }
@@ -87,175 +98,175 @@
         .contact-item {
             display: flex;
             align-items: center;
-            gap: 5px;
-            font-size: 0.9em;
+            gap: 6px;
+            font-size: 1em;
             transition: transform 0.3s ease;
             white-space: nowrap;
             flex-shrink: 0;
-            color: #666;
         }
 
         .contact-item:hover {
-            transform: translateY(-1px);
-            color: #333;
+            transform: translateY(-2px);
         }
 
         .contact-item a {
-            color: #0366d6;
+            color: white;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: opacity 0.3s ease;
         }
 
         .contact-item a:hover {
-            color: #0253cc;
-            text-decoration: underline;
-        }
-
-        .contact-item i {
-            color: #666;
+            opacity: 0.8;
         }
 
         .main-content {
-            padding: 30px;
+            padding: 50px;
         }
 
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 50px;
         }
 
         .section-title {
-            font-size: 1.6em;
-            color: #222;
-            margin-bottom: 20px;
+            font-size: 2.2em;
+            color: #667eea;
+            margin-bottom: 30px;
             position: relative;
-            padding-bottom: 8px;
-            font-weight: 500;
-            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 2px;
         }
 
         .education-item, .experience-item, .project-item {
-            background: white;
-            border-left: 3px solid #ddd;
-            padding: 15px;
-            margin-bottom: 15px;
-            border-radius: 0 4px 4px 0;
-            transition: all 0.3s ease;
+            background: #f8f9ff;
+            border-left: 4px solid #667eea;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-radius: 0 10px 10px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             position: relative;
         }
 
         .education-item:hover, .experience-item:hover, .project-item:hover {
-            border-left-color: #0366d6;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.1);
         }
 
         .item-header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 10px;
         }
 
         .item-title {
-            font-size: 1.15em;
+            font-size: 1.4em;
             font-weight: 600;
-            color: #222;
+            color: #333;
         }
 
         .item-date {
-            color: #666;
+            color: #667eea;
             font-weight: 500;
             white-space: nowrap;
-            font-size: 0.95em;
         }
 
         .item-subtitle {
             color: #666;
             font-style: italic;
-            margin-bottom: 10px;
-            font-size: 0.95em;
+            margin-bottom: 15px;
+            font-size: 1.1em;
         }
 
         .skills-tag {
-            background: #f6f8fa;
-            color: #586069;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 0.85em;
+            background: #e8ecff;
+            color: #667eea;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 0.9em;
             font-weight: 500;
-            border: 1px solid #e1e4e8;
         }
 
         .achievements {
             list-style: none;
-            margin-top: 8px;
+            margin-top: 15px;
         }
 
         .achievements li {
-            margin-bottom: 8px;
-            padding-left: 16px;
+            margin-bottom: 12px;
+            padding-left: 25px;
             position: relative;
-            line-height: 1.5;
-            font-size: 0.95em;
+            line-height: 1.7;
         }
 
         .achievements li::before {
-            content: '•';
+            content: '▸';
             position: absolute;
             left: 0;
-            color: #666;
+            color: #667eea;
             font-weight: bold;
             font-size: 1.2em;
         }
 
         .technical-skills {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
         .skill-category {
-            background: #f6f8fa;
-            padding: 15px;
-            border-radius: 6px;
-            border: 1px solid #e1e4e8;
+            background: #f8f9ff;
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid #e8ecff;
             transition: transform 0.3s ease;
         }
 
         .skill-category:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.1);
         }
 
         .skill-title {
             font-weight: 600;
-            color: #222;
-            margin-bottom: 6px;
-            font-size: 1em;
+            color: #667eea;
+            margin-bottom: 10px;
+            font-size: 1.2em;
         }
 
         .skill-list {
-            color: #586069;
-            line-height: 1.5;
-            font-size: 0.9em;
+            color: #666;
+            line-height: 1.8;
         }
 
         .highlight {
-            background: #fff5b4;
-            padding: 2px 4px;
-            border-radius: 3px;
-            font-weight: 500;
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-weight: 600;
         }
 
         .pdf-download {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: #0366d6;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             color: white;
-            padding: 10px 18px;
-            border-radius: 6px;
+            padding: 12px 20px;
+            border-radius: 25px;
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -263,56 +274,18 @@
             align-items: center;
             gap: 8px;
             z-index: 10;
-            font-size: 0.9em;
         }
 
         .pdf-download:hover {
-            background: #0253cc;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(3, 102, 214, 0.3);
-        }
-
-        .stats-controls {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            z-index: 10;
-        }
-
-        .stats-badge {
-            background: #f6f8fa;
-            border: 1px solid #e1e4e8;
-            color: #586069;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85em;
-            margin-bottom: 8px;
-            display: inline-block;
-        }
-
-        .stats-button {
-            background: #f6f8fa;
-            border: 1px solid #e1e4e8;
-            color: #586069;
-            padding: 6px 12px;
-            border-radius: 6px;
-            font-size: 0.85em;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        .stats-button:hover {
-            background: #e1e4e8;
-            color: #24292e;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         @media (max-width: 768px) {
             .container {
                 margin: 10px;
-                border-radius: 6px;
+                border-radius: 15px;
             }
 
             .header {
@@ -320,7 +293,7 @@
             }
 
             .name {
-                font-size: 2.2em;
+                font-size: 2.5em;
             }
 
             .contact-info {
@@ -337,7 +310,7 @@
             }
 
             .contact-item {
-                font-size: 0.9em;
+                font-size: 1em;
             }
 
             .pdf-download {
@@ -345,13 +318,7 @@
                 top: 10px;
                 right: 10px;
                 padding: 8px 15px;
-                font-size: 0.85em;
-            }
-
-            .stats-controls {
-                position: fixed;
-                top: 10px;
-                left: 10px;
+                font-size: 0.9em;
             }
 
             .main-content {
@@ -377,16 +344,11 @@
             .container {
                 box-shadow: none;
                 border-radius: 0;
-                border: none;
             }
             
             .header {
-                border-bottom: 1px solid #ccc;
-            }
-
-            .stats-controls,
-            .pdf-download {
-                display: none;
+                background: #667eea !important;
+                -webkit-print-color-adjust: exact;
             }
         }
     </style>
@@ -395,11 +357,11 @@
     <div class="page-wrapper" id="page-wrapper">
         <div class="container">
         <header class="header">
-            <div class="stats-controls">
-                <div class="stats-badge">
+            <div style="position: absolute; top: 20px; left: 20px; z-index: 10;">
+                <div style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; margin-bottom: 10px;">
                     <i class="fas fa-users"></i> Visits: <span id="visit-count">Loading...</span>
                 </div>
-                <button onclick="viewStats()" class="stats-button">
+                <button onclick="viewStats()" style="background: rgba(255, 255, 255, 0.2); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.3); color: white; padding: 8px 15px; border-radius: 20px; font-size: 0.9em; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(255, 255, 255, 0.3)'; this.style.transform='translateY(-2px)'" onmouseout="this.style.background='rgba(255, 255, 255, 0.2)'; this.style.transform='translateY(0)'">
                     <i class="fas fa-chart-line"></i> View Stats
                 </button>
             </div>
@@ -430,6 +392,7 @@
                         document.getElementById('visit-count').textContent = 'Error loading count';
                     });
                 </script>
+
 
                 <div class="contact-info">
                     <div class="contact-item">
