@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Daniel Dema - Resume</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -14,9 +15,9 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
-            line-height: 1.5;
+            line-height: 1.4;
             color: #333;
-            background: #fafafa;
+            background: linear-gradient(135deg, #fafafa 0%, #f5f7fa 100%);
             min-height: 100vh;
             padding: 15px;
         }
@@ -46,11 +47,12 @@
             max-width: 1100px;
             margin: 0 auto;
             background: white;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.06);
+            border-radius: 12px;
             overflow: hidden;
             position: relative;
             border: 1px solid #e5e5e5;
+            transition: box-shadow 0.3s ease;
         }
 
         .header {
@@ -68,11 +70,12 @@
         }
 
         .name {
-            font-size: 2.4em;
-            font-weight: 400;
-            margin-bottom: 8px;
-            letter-spacing: -1px;
-            color: #222;
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 2.6em;
+            font-weight: 300;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+            color: #1a1a1a;
         }
 
         .contact-info {
@@ -85,6 +88,7 @@
         }
 
         .contact-item {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
             display: flex;
             align-items: center;
             gap: 5px;
@@ -109,10 +113,12 @@
         .contact-item a:hover {
             color: #0253cc;
             text-decoration: underline;
+            transform: translateY(-1px);
         }
 
         .contact-item i {
             color: #666;
+            font-size: 0.9em;
         }
 
         .main-content {
@@ -124,38 +130,43 @@
         }
 
         .section-title {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
             font-size: 1.6em;
             color: #222;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             position: relative;
-            padding-bottom: 8px;
-            font-weight: 500;
-            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            font-weight: 400;
+            border-bottom: 2px solid #0366d6;
+            letter-spacing: 0.3px;
         }
 
         .education-item {
             background: white;
-            border-left: 3px solid #ddd;
+            border-left: 2px solid #ddd;
             padding: 10px 15px;
             margin-bottom: 10px;
-            border-radius: 0 4px 4px 0;
-            transition: all 0.3s ease;
+            border-radius: 0 6px 6px 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
         }
 
         .experience-item, .project-item {
             background: white;
-            border-left: 3px solid #ddd;
+            border-left: 2px solid #ddd;
             padding: 15px;
             margin-bottom: 15px;
-            border-radius: 0 4px 4px 0;
-            transition: all 0.3s ease;
+            border-radius: 0 6px 6px 0;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
+            transform: translateX(0);
         }
 
         .education-item:hover, .experience-item:hover, .project-item:hover {
             border-left-color: #0366d6;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 16px rgba(3, 102, 214, 0.15), 0 2px 8px rgba(0,0,0,0.1);
+            transform: translateX(4px);
+            background: #fafbfc;
         }
 
         .item-header {
@@ -168,33 +179,49 @@
         }
 
         .item-title {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
             font-size: 1.15em;
-            font-weight: 600;
+            font-weight: 400;
             color: #222;
         }
 
         .item-date {
-            color: #666;
-            font-weight: 500;
+            color: #718096;
+            font-weight: 400;
             white-space: nowrap;
-            font-size: 0.95em;
+            font-size: 0.85em;
+            letter-spacing: 0.2px;
         }
 
         .item-subtitle {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
             color: #666;
             font-style: italic;
             margin-bottom: 10px;
             font-size: 0.95em;
         }
 
+        .item-header + .item-subtitle {
+            margin-top: -5px;
+        }
+
         .skills-tag {
-            background: #f6f8fa;
-            color: #586069;
-            padding: 3px 8px;
-            border-radius: 3px;
-            font-size: 0.85em;
+            background: #edf2f7;
+            color: #2d3748;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8em;
             font-weight: 500;
-            border: 1px solid #e1e4e8;
+            border: 1px solid #cbd5e0;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+            transition: all 0.2s ease;
+        }
+
+        .skills-tag:hover {
+            background: #e2e8f0;
+            border-color: #a0aec0;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .achievements {
@@ -203,6 +230,7 @@
         }
 
         .achievements li {
+            font-family: 'Georgia', serif;
             margin-bottom: 8px;
             padding-left: 16px;
             position: relative;
@@ -214,9 +242,10 @@
             content: '•';
             position: absolute;
             left: 0;
-            color: #666;
+            top: 0.1em;
+            color: #333;
             font-weight: bold;
-            font-size: 1.2em;
+            font-size: 1.1em;
         }
 
         .technical-skills {
@@ -234,12 +263,14 @@
         }
 
         .skill-category:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+            border: 1px solid #cbd5e0;
         }
 
         .skill-title {
-            font-weight: 600;
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 400;
             color: #222;
             margin-bottom: 6px;
             font-size: 1em;
@@ -252,13 +283,15 @@
         }
 
         .highlight {
-            background: #fff5b4;
-            padding: 2px 4px;
-            border-radius: 3px;
+            background: #e8f4fd;
+            color: #333;
+            padding: 2px 5px;
+            border-radius: 4px;
             font-weight: 500;
         }
 
         .pdf-download {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
             position: absolute;
             top: 20px;
             right: 20px;
@@ -267,7 +300,7 @@
             padding: 10px 18px;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 400;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
@@ -278,8 +311,8 @@
 
         .pdf-download:hover {
             background: #0253cc;
-            transform: translateY(-1px);
-            box-shadow: 0 2px 8px rgba(3, 102, 214, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(3, 102, 214, 0.4);
         }
 
         .stats-controls {
@@ -290,6 +323,7 @@
         }
 
         .stats-badge {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #f6f8fa;
             border: 1px solid #e1e4e8;
             color: #586069;
@@ -305,6 +339,7 @@
         }
 
         .stats-button {
+            font-family: 'Lato', -apple-system, BlinkMacSystemFont, sans-serif;
             background: #f6f8fa;
             border: 1px solid #e1e4e8;
             color: #586069;
@@ -320,8 +355,10 @@
         }
 
         .stats-button:hover {
-            background: #e1e4e8;
-            color: #24292e;
+            background: #e2e8f0;
+            color: #2d3748;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
         }
 
         @media (max-width: 768px) {
@@ -385,23 +422,60 @@
 
         @media print {
             body {
-                background: white;
+                background: white !important;
                 padding: 0;
+                -webkit-print-color-adjust: exact;
+                color-adjust: exact;
             }
             
             .container {
-                box-shadow: none;
+                box-shadow: none !important;
                 border-radius: 0;
                 border: none;
+                max-width: none;
+                margin: 0;
             }
             
             .header {
                 border-bottom: 1px solid #ccc;
+                padding: 30px 20px 20px;
+            }
+
+            .main-content {
+                padding: 20px;
             }
 
             .stats-controls,
             .pdf-download {
-                display: none;
+                display: none !important;
+            }
+
+            .section-title {
+                color: #222 !important;
+                border-bottom-color: #0366d6 !important;
+                break-after: avoid;
+            }
+
+            .experience-item,
+            .project-item,
+            .education-item {
+                break-inside: avoid;
+                margin-bottom: 12px;
+            }
+
+            .achievements {
+                break-inside: avoid;
+            }
+
+            .highlight {
+                background: #e8f4fd !important;
+                -webkit-print-color-adjust: exact;
+            }
+
+            .skills-tag {
+                background: #edf2f7 !important;
+                border-color: #cbd5e0 !important;
+                -webkit-print-color-adjust: exact;
             }
         }
     </style>
@@ -478,10 +552,10 @@
                         <div>
                             <div class="item-title">York University</div>
                             <div class="item-subtitle">Master of Arts in Data Science</div>
-                            <div class="item-subtitle">Relevant Coursework: Statistical Data Science, Mathematical Statistics, Applied Statistics, Longitudinal Data Analysis</div>
                         </div>
                         <div class="item-date">Sep. 2024 – Dec. 2026 (Expected)</div>
                     </div>
+                    <div class="item-subtitle">Relevant Coursework: Statistical Data Science, Mathematical Statistics, Applied Statistics, Longitudinal Data Analysis</div>
                 </div>
 
                 <div class="education-item">
@@ -503,12 +577,12 @@
                         <div>
                             <div class="item-title">Freelance Data Engineer</div>
                             <div class="item-subtitle">
-                                Superior Audio | 
-                                <span class="skills-tag">SQL</span>
-                                <span class="skills-tag">PostgreSQL</span>
-                                <span class="skills-tag">Supabase</span>
-                                <span class="skills-tag">Retool</span>
-                                <span class="skills-tag">Python</span>
+                                Superior Audio │ 
+                                <span class="skills-tag">SQL</span> 
+                                <span class="skills-tag">PostgreSQL</span> 
+                                <span class="skills-tag">Supabase</span> 
+                                <span class="skills-tag">Retool</span> 
+                                <span class="skills-tag">Python</span> 
                                 <span class="skills-tag">pandas</span>
                             </div>
                         </div>
