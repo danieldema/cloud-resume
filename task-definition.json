@@ -6,12 +6,12 @@
   ],
   "cpu": "256",
   "memory": "512",
-  "executionRoleArn": "arn:aws:iam::634250760874:role/ecsTaskExecutionRole",
-  "taskRoleArn": "arn:aws:iam::634250760874:role/ecsTaskRole",
+  "executionRoleArn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::YOUR_ACCOUNT_ID:role/ecsTaskRole",
   "containerDefinitions": [
     {
       "name": "resume-app",
-      "image": "634250760874.dkr.ecr.us-east-2.amazonaws.com/resume-app:latest",
+      "image": "YOUR_ACCOUNT_ID.dkr.ecr.us-east-2.amazonaws.com/resume-app:latest",
       "essential": true,
       "portMappings": [
         {
@@ -28,19 +28,19 @@
       "secrets": [
         {
           "name": "RDS_HOST",
-          "valueFrom": "arn:aws:ssm:us-east-2:634250760874:parameter/resume-app/rds-host"
+          "valueFrom": "arn:aws:ssm:us-east-2:YOUR_ACCOUNT_ID:parameter/resume-app/rds-host"
         },
         {
           "name": "RDS_USER",
-          "valueFrom": "arn:aws:ssm:us-east-2:634250760874:parameter/resume-app/rds-user"
+          "valueFrom": "arn:aws:ssm:us-east-2:YOUR_ACCOUNT_ID:parameter/resume-app/rds-user"
         },
         {
           "name": "RDS_PASSWORD",
-          "valueFrom": "arn:aws:ssm:us-east-2:634250760874:parameter/resume-app/rds-password"
+          "valueFrom": "arn:aws:ssm:us-east-2:YOUR_ACCOUNT_ID:parameter/resume-app/rds-password"
         },
         {
           "name": "DB_NAME",
-          "valueFrom": "arn:aws:ssm:us-east-2:634250760874:parameter/resume-app/db-name"
+          "valueFrom": "arn:aws:ssm:us-east-2:YOUR_ACCOUNT_ID:parameter/resume-app/db-name"
         }
       ],
       "logConfiguration": {
