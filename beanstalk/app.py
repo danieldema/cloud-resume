@@ -5,10 +5,10 @@ import os
 
 app = Flask(__name__)
 
-RDS_HOST = os.environ.get('RDS_HOST', "resume-database.c1gwgeywogbx.us-east-2.rds.amazonaws.com")
-RDS_USER = os.environ.get('RDS_USER', "admin")
-RDS_PASSWORD = os.environ.get('RDS_PASSWORD', "Saturn24!!")
-DB_NAME = os.environ.get('DB_NAME', "resume_tracker")
+RDS_HOST = os.environ.get('RDS_HOST')
+RDS_USER = os.environ.get('RDS_USER')
+RDS_PASSWORD = os.environ.get('RDS_PASSWORD')
+DB_NAME = os.environ.get('DB_NAME')
 
 def get_db_connection():
     return mysql.connector.connect(host = RDS_HOST, user = RDS_USER, password = RDS_PASSWORD, database = DB_NAME)

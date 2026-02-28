@@ -55,10 +55,10 @@ aws iam create-role --role-name ecsTaskRole --assume-role-policy-document '{
 
 ### 1.4 Store Database Secrets in Parameter Store
 ```bash
-aws ssm put-parameter --name "/resume-app/rds-host" --value "resume-database.c1gwgeywogbx.us-east-2.rds.amazonaws.com" --type "SecureString" --region us-east-2
-aws ssm put-parameter --name "/resume-app/rds-user" --value "admin" --type "SecureString" --region us-east-2
-aws ssm put-parameter --name "/resume-app/rds-password" --value "Saturn24!!" --type "SecureString" --region us-east-2
-aws ssm put-parameter --name "/resume-app/db-name" --value "resume_tracker" --type "SecureString" --region us-east-2
+aws ssm put-parameter --name "/resume-app/rds-host" --value "<YOUR_RDS_HOST>" --type "SecureString" --region us-east-2
+aws ssm put-parameter --name "/resume-app/rds-user" --value "<YOUR_DB_USER>" --type "SecureString" --region us-east-2
+aws ssm put-parameter --name "/resume-app/rds-password" --value "<YOUR_DB_PASSWORD>" --type "SecureString" --region us-east-2
+aws ssm put-parameter --name "/resume-app/db-name" --value "<YOUR_DB_NAME>" --type "SecureString" --region us-east-2
 ```
 
 ### 1.5 Update IAM Role for Parameter Store Access
